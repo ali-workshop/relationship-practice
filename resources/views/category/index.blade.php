@@ -14,11 +14,14 @@
     <table>
         <tr>
           <th>Category Name</th>
+          <th>Category edit</th>
+    
           <edit>
         </tr>
             @foreach ($categories as $category )
             <tr>
-            <td>{{$category->name}}</td>      
+            <td>{{$category->name}}</td>  
+            <td>{{route('categories.edit',['category'=>$category])}}</td>       
             </tr>
             @endforeach
           

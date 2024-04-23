@@ -67,9 +67,22 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
-    }
+        $category_name=$request->validate([
+            'name'=>['required','string','max:8'],
 
+        ]);
+
+        $category=Category::find($category);
+        $category->name=$request->name;
+        $category->save();
+        
+        // another way : Category::creat($category_name);
+
+        return redirect()
+        ->route('categories.index')
+        ->with('success','the category is updated successfully');
+    
+        }
     /**
      * Remove the specified resource from storage.
      */
