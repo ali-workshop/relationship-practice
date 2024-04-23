@@ -13,15 +13,15 @@
     <a href='{{route('categories.create')}}'> Add new Category</a>
     <table>
         <tr>
-          <th>Category Name</th>
-          <th>edit</th>
-          <th>delete</th>
+          <th>CategoryName</th>
+          <th> edit</th>
+          <th> delete</th>
           <edit>
         </tr>
             @foreach ($categories as $category )
             <tr>
             <td>{{$category->name}}</td>  
-            <td>{{route('categories.edit',['category'=>$category])}}</td>
+            <td><a href='{{route('categories.edit',['category'=>$category])}}' >edit</a> </td>
             <td>
             <form action='{{route('categories.destroy',['category'=>$category])}}' method='post'>
                 @csrf

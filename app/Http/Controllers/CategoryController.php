@@ -21,7 +21,7 @@ class CategoryController extends Controller
      */
     public function create()
     {   
-        return view('product.creat');
+        return view('category.create');
     }
 
     /**
@@ -72,7 +72,7 @@ class CategoryController extends Controller
 
         ]);
 
-        $category=Category::find($category);
+        $category=Category::find($category->id);
         $category->name=$request->name;
         $category->save();
         
@@ -88,6 +88,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        
+       $category->delete();
+       return redirect()
+       ->route('categories.index')
+       ->with('success','the category is Deleted successfully');
+    
     }
 }

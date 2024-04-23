@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action='{{route('categories.update')}}' method='POST'>
+<form action='{{route('categories.update',['category'=>$category])}}' method='POST'>
     @csrf
     @method('PUT')
     <div>
