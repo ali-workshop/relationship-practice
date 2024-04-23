@@ -14,14 +14,22 @@
     <table>
         <tr>
           <th>Category Name</th>
-          <th>Category edit</th>
-    
+          <th>edit</th>
+          <th>delete</th>
           <edit>
         </tr>
             @foreach ($categories as $category )
             <tr>
             <td>{{$category->name}}</td>  
-            <td>{{route('categories.edit',['category'=>$category])}}</td>       
+            <td>{{route('categories.edit',['category'=>$category])}}</td>
+            <td>
+            <form action='{{route('categories.destroy',['category'=>$category])}}' method='post'>
+                @csrf
+                @method('DELETE')
+                <input type='submit' value ='Delete' >
+            </form>    
+            
+            </td>          
             </tr>
             @endforeach
           
