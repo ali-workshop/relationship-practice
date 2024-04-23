@@ -20,7 +20,7 @@ class CategoryController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {
+    {   
         return view('product.creat');
     }
 
@@ -29,6 +29,20 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+            $category_name=$request->validate([
+                'name'=>['required','string','max:8'],
+
+            ]);
+
+            $category=new Category();
+            $category->name=$request->name;
+            $category->save();
+            
+            // another way : Category::creat($category_name);
+
+            return redirect()
+            ->route('categories.index')
+            ->with('success','the category is added successfully');
         
     }
 
@@ -44,8 +58,8 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
-    {
-        return view('category.edit');
+    {   
+        return view('category.edit',['category'=>$category]);
     }
 
     /**
