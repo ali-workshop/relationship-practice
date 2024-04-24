@@ -16,6 +16,13 @@
         
             <input type='text' name='name' placeholder="Name" required>
             <input type='interger' name='quintity' placeholder="Quintity" required>
+            
+            <select name='category_id'> 
+                <option>Select Category</option>
+            @foreach ($categories as $category)
+            <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+            </select>
         
             <input type='submit'  value='Add product'>
     </div>

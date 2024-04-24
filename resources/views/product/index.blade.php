@@ -25,6 +25,7 @@
             <td>{{$product->name}}</td> 
             <td>{{$product->quintity}}</td>  
             <td>{{$product->avaliable}}</td>  
+            
             <td><a href='{{route('products.edit',['product'=>$product])}}' >edit</a> </td>
             <td>
             <form action='{{route('products.destroy',['product'=>$product])}}' method='post'>
