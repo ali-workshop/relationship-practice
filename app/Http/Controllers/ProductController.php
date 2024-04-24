@@ -34,12 +34,14 @@ class ProductController extends Controller
         $product_data=$request->validate([
             'name'=>['required','string','max:8'],
             'quintity'=>['integer','min:0'],
+            'category_id'=>['required','integer','exists:categories,id'],
 
         ]);
 
         $product=new Product();
         $product->name=$request->name;
         $product->quintity=$request->quintity;
+        $product->category_id=$request->category_id;
         $product->avaliable=false;
         if($product->quintity>0){
             $product->avaliable=true;  
