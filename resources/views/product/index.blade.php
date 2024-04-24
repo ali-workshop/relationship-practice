@@ -28,10 +28,9 @@
             <td>
         @if ($product->avaliable)
         Avaliable
-        @endif
         @else
-        UnAvaliable 
-            
+        UnAvaliable
+        @endif
             </td>  
             <td>{{$product->category_id}}</td>  
             <td><a href='{{route('products.edit',['product'=>$product])}}' >edit</a> </td>
