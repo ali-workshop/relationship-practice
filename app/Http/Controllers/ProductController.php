@@ -31,14 +31,21 @@ class ProductController extends Controller
     {
         $product_data=$request->validate([
             'name'=>['required','string','max:8'],
+            'quintity'=>['integer','min:0'],
 
         ]);
 
         $product=new Product();
-        $category->name=$request->name;
+        $product->name=$request->name;
+        $product->quintity=$request->quintity;
+        $product->avaliable=false;
+        if($product->quintity>0){
+            $product->avaliable=true;  
+        }
+        
         $product->save();
         
-        // another way : Category::creat($category_name);
+        // another way : Category::creat($product_data);
 
         return redirect()
         ->route('products.index')
@@ -68,10 +75,25 @@ class ProductController extends Controller
     {
        
 
+        
+        
+        $product_data=$request->validate([
+            'name'=>['required','string','max:8'],
+            'quintity'=>['integer','min:0'],
+
+        ]);
+
         $product=Product::find($product->id);
+        $product->name=$request->name;
+        $product->quintity=$request->quintity;
+        $product->avaliable=false;
+        if($product->quintity>0){
+            $product->avaliable=true;  
+        }
         
         $product->save();
         
+
         // another way : Product::creat($product_data);
 
         return redirect()
