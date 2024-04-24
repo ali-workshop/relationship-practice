@@ -11,8 +11,8 @@ class CategoryController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   
-        $categories=Category::all();
+    {   $categories=Category::with('products')->get();
+        // $categories=Category::all();
         return view('category.index',['categories'=>$categories]);
     }
 

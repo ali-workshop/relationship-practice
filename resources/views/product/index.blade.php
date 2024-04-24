@@ -32,7 +32,7 @@
         UnAvaliable
         @endif
             </td>  
-            <td>{{$product->category_id}}</td>  
+            <td>{{$product->category->name}}</td>  
             <td><a href='{{route('products.edit',['product'=>$product])}}' >edit</a> </td>
             <td>
             <form action='{{route('products.destroy',['product'=>$product])}}' method='post'>

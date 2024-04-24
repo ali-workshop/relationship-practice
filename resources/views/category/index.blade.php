@@ -14,6 +14,7 @@
     <table>
         <tr>
           <th>CategoryName</th>
+          <th>Categoryproducts</th>
           <th> edit</th>
           <th> delete</th>
           <edit>
@@ -21,6 +22,9 @@
             @foreach ($categories as $category )
             <tr>
             <td>{{$category->name}}</td>  
+            <td>@foreach ($category->products as $product)
+               {{ $product->name}}
+            @endforeach</td>  
             <td><a href='{{route('categories.edit',['category'=>$category])}}' >edit</a> </td>
             <td>
             <form action='{{route('categories.destroy',['category'=>$category])}}' method='post'>
