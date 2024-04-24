@@ -16,6 +16,7 @@
           <th>ProductName</th>
           <th>ProductQuantity</th>
           <th>Productavailablity</th>
+          <th>ProductCategory</th>
           <th> edit</th>
           <th> delete</th>
           <edit>
@@ -24,8 +25,15 @@
             <tr>
             <td>{{$product->name}}</td> 
             <td>{{$product->quintity}}</td>  
-            <td>{{$product->avaliable}}</td>  
+            <td>
+        @if ($product->avaliable)
+        Avaliable
+        @endif
+        @else
+        UnAvaliable 
             
+            </td>  
+            <td>{{$product->category_id}}</td>  
             <td><a href='{{route('products.edit',['product'=>$product])}}' >edit</a> </td>
             <td>
             <form action='{{route('products.destroy',['product'=>$product])}}' method='post'>

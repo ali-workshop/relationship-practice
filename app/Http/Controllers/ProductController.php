@@ -12,9 +12,13 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
+    {   
+        
         $products=Product::all();
-        return view('product.index',['products'=>$products]);
+        return view('product.index',[
+            'products'=>$products,
+              
+        ]);
     }
 
     /**
