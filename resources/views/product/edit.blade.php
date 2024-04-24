@@ -13,8 +13,8 @@
     @method('PUT')
     <div>
        
-            <input type='text' name='name' placeholder="Name" {{old($product->name)}} >
-            <input type='integer' name='quintity' placeholder="quintity" {{old($product->quintity)}} >
+            <input type='text' name='name' placeholder="Name" value="{{$product->name}}" >
+            <input type='integer' name='quintity' placeholder="quintity" value="{{$product->quintity}}" >
             <input type='submit'  value='edit product'>
     </div>
 
