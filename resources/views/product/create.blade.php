@@ -11,7 +11,9 @@
 <form action='{{route('products.store')}}' method='post'>
     @csrf
     <div>
-       
+            
+
+        
             <input type='text' name='name' placeholder="Name" required>
             <input type='interger' name='quintity' placeholder="Quintity" required>
         
