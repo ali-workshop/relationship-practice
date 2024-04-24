@@ -12,7 +12,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products=Product::all();
+        return view('product.index',['product'=>$products]);
     }
 
     /**
@@ -20,7 +21,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -28,7 +29,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product_data=$request->validate([
+            'name'=>['required','string','max:8'],
+
+        ]);
+
+        $product=new Product();
+        $category->name=$request->name;
+        $product->save();
+        
+        // another way : Category::creat($category_name);
+
+        return redirect()
+        ->route('products.index')
+        ->with('success','the product is added successfully');
     }
 
     /**
