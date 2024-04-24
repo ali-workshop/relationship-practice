@@ -31,6 +31,7 @@ class CategoryController extends Controller
     {
             $category_name=$request->validate([
                 'name'=>['required','string','max:10'],
+                'category_id'=>['required','integer','exists:categories,id']
 
             ]);
 

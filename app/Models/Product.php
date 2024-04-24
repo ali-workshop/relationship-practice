@@ -12,7 +12,8 @@ class Product extends Model
     protected $fillable=[
         'name',
         'quintity',
-        'avaliable'
+        'avaliable',
+        'category_id'
   
     ];
 
