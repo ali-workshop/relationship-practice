@@ -50,7 +50,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('product.show',['product'=>$product]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('product.edit',['product'=>$product]);
     }
 
     /**
@@ -66,7 +66,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+       
+
+        $product=Product::find($product->id);
+        
+        $product->save();
+        
+        // another way : Product::creat($product_data);
+
+        return redirect()
+        ->route('products.index')
+        ->with('success','the product is updated successfully');
+    
     }
 
     /**
@@ -74,6 +85,10 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()
+        ->route('products.index')
+        ->with('success','the product is Deleted successfully');
+     
     }
 }
